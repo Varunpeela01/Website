@@ -1,0 +1,571 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import fonts */
+@import "@fontsource/lilita-one";
+@import "@fontsource/poppins";
+
+/* Base styles */
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Circle Animations */
+@keyframes floatTop {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(clamp(50px, 15vw, 200px), clamp(25px, 8vw, 100px))
+      scale(1.1);
+  }
+  50% {
+    transform: translate(clamp(25px, 10vw, 100px), clamp(-25px, -8vw, -100px))
+      scale(1);
+  }
+  75% {
+    transform: translate(clamp(-25px, -10vw, -100px), clamp(50px, 15vw, 200px))
+      scale(1.1);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+@keyframes floatBottom {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(
+        clamp(-40px, -12vw, -150px),
+        clamp(-40px, -12vw, -150px)
+      )
+      scale(1.2);
+  }
+  66% {
+    transform: translate(clamp(40px, 12vw, 150px), clamp(-20px, -8vw, -80px))
+      scale(0.9);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+@keyframes floatMiddle {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(clamp(30px, 10vw, 120px), clamp(30px, 10vw, 120px))
+      rotate(90deg);
+  }
+  50% {
+    transform: translate(clamp(-30px, -10vw, -120px), clamp(15px, 5vw, 60px))
+      rotate(180deg);
+  }
+  75% {
+    transform: translate(clamp(15px, 5vw, 60px), clamp(-30px, -10vw, -120px))
+      rotate(270deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(360deg);
+  }
+}
+
+/* Love Message Styles */
+.love-message-container {
+  font-family: "Lilita One", sans-serif;
+  height: 100vh;
+  width: 100vw;
+  background-color: #fff5f5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.blur-circle-top {
+  position: absolute;
+  top: -100px;
+  right: -50px;
+  width: clamp(300px, 50vw, 600px);
+  height: clamp(300px, 50vw, 600px);
+  border-radius: 50%;
+  background-color: #ff69b4;
+  opacity: 0.6;
+  filter: blur(clamp(50px, 10vw, 100px));
+  animation: floatTop 8s ease-in-out infinite;
+  will-change: transform;
+}
+
+.blur-circle-bottom {
+  position: absolute;
+  bottom: -75px;
+  left: -50px;
+  width: clamp(250px, 45vw, 500px);
+  height: clamp(250px, 45vw, 500px);
+  border-radius: 50%;
+  background-color: #fbb6ff;
+  opacity: 0.7;
+  filter: blur(clamp(40px, 8vw, 80px));
+  animation: floatBottom 10s ease-in-out infinite;
+  will-change: transform;
+}
+
+.blur-circle-middle {
+  position: absolute;
+  top: 20%;
+  left: 30%;
+  width: clamp(200px, 40vw, 400px);
+  height: clamp(200px, 40vw, 400px);
+  border-radius: 50%;
+  background-color: #ffd3b8;
+  opacity: 0.65;
+  filter: blur(clamp(30px, 6vw, 60px));
+  animation: floatMiddle 12s ease-in-out infinite;
+  will-change: transform;
+}
+
+.message-content {
+  z-index: 10;
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  top: 45vh;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  padding: 0 1rem;
+}
+
+@media (max-width: 768px) {
+  .message-content {
+    top: 40vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .message-content {
+    top: 35vh;
+  }
+}
+
+.letters-container {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.letters-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.letter {
+  font-size: clamp(2.5rem, 15vw, 300px);
+  color: #ff69b4;
+  transition: transform 0.3s ease;
+  opacity: 0.3;
+  line-height: 1;
+  font-weight: bold;
+  padding: 0 0.1rem;
+}
+
+@media (max-width: 768px) {
+  .letter {
+    font-size: clamp(2rem, 12vw, 180px);
+  }
+
+  .letters-wrapper {
+    gap: 0.25rem;
+  }
+
+  .love-button {
+    padding: 12px 24px;
+    font-size: 16px;
+  }
+
+  .rotating-message {
+    font-size: 18px;
+    bottom: -40px;
+  }
+
+  .footer-message {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .letter {
+    font-size: clamp(1.5rem, 10vw, 120px);
+  }
+
+  .letters-wrapper {
+    gap: 0.15rem;
+  }
+
+  .love-button {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  .rotating-message {
+    font-size: 16px;
+    bottom: -30px;
+  }
+
+  .footer-message {
+    font-size: 14px;
+  }
+
+  .modal-content {
+    padding: 20px;
+    width: 95%;
+  }
+
+  .modal-title {
+    font-size: 24px;
+  }
+
+  .modal-message {
+    font-size: 16px;
+  }
+}
+
+.letters-container {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  margin-top: -5vh;
+}
+
+.letters-wrapper {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+}
+
+@media (max-width: 1200px) {
+  .letter {
+    font-size: 15vw;
+  }
+}
+
+@media (max-width: 768px) {
+  .letter {
+    font-size: 12vw;
+  }
+}
+
+@media (max-width: 768px) {
+  .letters-container {
+    width: 95vw;
+    transform: scale(0.8);
+  }
+
+  .letter {
+    font-size: min(14vw, 12vh);
+  }
+}
+
+@media (max-width: 480px) {
+  .letters-container {
+    width: 98vw;
+    transform: scale(0.7);
+  }
+
+  .letter {
+    font-size: min(16vw, 10vh);
+  }
+}
+
+.letter-active {
+  transform: scale(1.2);
+}
+
+.rotating-message {
+  position: absolute;
+  bottom: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  color: #ff69b4;
+  font-size: clamp(1rem, 4vw, 1.5rem);
+  font-family: "Poppins", sans-serif;
+  transition: all 0.5s;
+  padding: 0 1rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 2em;
+}
+
+@media (max-width: 768px) {
+  .rotating-message {
+    bottom: -50px;
+    font-size: clamp(0.875rem, 3.5vw, 1.25rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .rotating-message {
+    bottom: -40px;
+    font-size: clamp(0.75rem, 3vw, 1rem);
+  }
+}
+
+.love-button {
+  background-color: #ff69b4;
+  color: white;
+  padding: 15px 40px;
+  border-radius: 9999px;
+  font-size: 20px;
+  box-shadow: 0 10px 20px rgba(255, 105, 180, 0.3);
+  transition: all 0.3s;
+  font-family: "Poppins", sans-serif;
+  z-index: 20;
+  backdrop-filter: blur(5px);
+}
+
+.love-button:hover {
+  background-color: #ff45a4;
+  transform: translateY(-2px);
+}
+
+.hover-message {
+  position: absolute;
+  top: -80px;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  background-color: white;
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  width: 200px;
+}
+
+.hover-message p {
+  color: #ff69b4;
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+}
+
+.footer-message {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  color: #ff69b4;
+  font-size: 18px;
+  font-family: "Poppins", sans-serif;
+  padding: 10px;
+}
+@media (max-width: 360px) {
+  .letters-container {
+    width: 98vw;
+  }
+
+  .rotating-message {
+    font-size: 16px;
+    bottom: -40px;
+  }
+
+  .love-button {
+    padding: 12px 30px;
+    font-size: 18px;
+  }
+
+  .button-container {
+    margin-top: 60px;
+  }
+
+  .blur-circle-top {
+    width: 300px;
+    height: 300px;
+    top: -100px;
+    right: -50px;
+    filter: blur(60px);
+  }
+
+  .blur-circle-bottom {
+    width: 250px;
+    height: 250px;
+    bottom: -80px;
+    left: -50px;
+    filter: blur(50px);
+  }
+
+  .blur-circle-middle {
+    width: 200px;
+    height: 200px;
+    top: 30%;
+    left: 20%;
+    filter: blur(40px);
+  }
+}
+
+@media (max-width: 480px) {
+  .love-button {
+    padding: 10px 25px;
+    font-size: 16px;
+  }
+
+  .button-container {
+    margin-top: 50px;
+  }
+
+  .letters-wrapper {
+    gap: 3px;
+  }
+
+  .letter {
+    font-size: 32px;
+  }
+
+  .rotating-message {
+    font-size: 14px;
+    bottom: -35px;
+  }
+
+  .blur-circle-top {
+    width: 250px;
+    height: 250px;
+    top: -80px;
+    right: -40px;
+    filter: blur(50px);
+  }
+
+  .blur-circle-bottom {
+    width: 200px;
+    height: 200px;
+    bottom: -60px;
+    left: -40px;
+    filter: blur(40px);
+  }
+
+  .blur-circle-middle {
+    width: 150px;
+    height: 150px;
+    filter: blur(30px);
+  }
+}
+
+@media (max-width: 360px) {
+  .love-button {
+    padding: 8px 20px;
+    font-size: 14px;
+  }
+
+  .button-container {
+    margin-top: 40px;
+  }
+
+  .letters-wrapper {
+    gap: 2px;
+  }
+
+  .letter {
+    font-size: 28px;
+  }
+
+  .rotating-message {
+    font-size: 12px;
+    bottom: -30px;
+  }
+
+  .blur-circle-top {
+    width: 200px;
+    height: 200px;
+    top: -60px;
+    right: -30px;
+    filter: blur(40px);
+  }
+
+  .blur-circle-bottom {
+    width: 180px;
+    height: 180px;
+    bottom: -50px;
+    left: -30px;
+    filter: blur(35px);
+  }
+
+  .blur-circle-middle {
+    width: 120px;
+    height: 120px;
+    filter: blur(25px);
+  }
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 50;
+  backdrop-filter: blur(4px);
+}
+
+.modal-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: clamp(20px, 5vw, 30px);
+  border-radius: 20px;
+  z-index: 51;
+  width: 95%;
+  max-width: 400px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  margin: 0 auto;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  color: #ff69b4;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.modal-title {
+  font-family: "Lilita One", sans-serif;
+  color: #ff69b4;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.modal-message {
+  font-family: "Poppins", sans-serif;
+  color: #ff69b4;
+  font-size: 18px;
+  line-height: 1.6;
+}
