@@ -1,14 +1,50 @@
 {
   "..\\node_modules\\next\\dist\\client\\index.js -> ../pages/_app": {
-    "id": "..\\node_modules\\next\\dist\\client\\index.js -> ../pages/_app",
+    "id": 57,
     "files": [
-      "static/chunks/_pages-dir-browser_node_modules_next_dist_pages__app_js.js"
+      "static/chunks/57.268c8c590d7f2802.js"
     ]
   },
   "..\\node_modules\\next\\dist\\client\\index.js -> ../pages/_error": {
-    "id": "..\\node_modules\\next\\dist\\client\\index.js -> ../pages/_error",
+    "id": 4100,
     "files": [
-      "static/chunks/_pages-dir-browser_node_modules_next_dist_pages__error_js.js"
+      "static/chunks/100.2207d6e226d10e89.js"
+    ]
+  },
+  "pages\\index.js -> ../components/FooterMessage": {
+    "id": 9900,
+    "files": [
+      "static/chunks/900.ec31d5c86717b091.js"
+    ]
+  },
+  "pages\\index.js -> ../components/HeartButton": {
+    "id": 2122,
+    "files": [
+      "static/chunks/122.8099c8d6ccb16480.js"
+    ]
+  },
+  "pages\\index.js -> ../components/ImageSection": {
+    "id": 6446,
+    "files": [
+      "static/chunks/446.fc83989253fc5e4e.js"
+    ]
+  },
+  "pages\\index.js -> ../components/LoveModal": {
+    "id": 4841,
+    "files": [
+      "static/chunks/841.0122da726553efcc.js"
+    ]
+  },
+  "pages\\index.js -> ../components/NameAnimation": {
+    "id": 1603,
+    "files": [
+      "static/chunks/603.6903811f650ae986.js"
+    ]
+  },
+  "pages\\index.js -> ../components/RotatingMessage": {
+    "id": 2187,
+    "files": [
+      "static/chunks/187.2724764d94b096af.js"
     ]
   }
 }

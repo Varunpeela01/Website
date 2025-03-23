@@ -1,0 +1,1 @@
+"use strict";exports.id=62,exports.ids=[62],exports.modules={7062:(t,e,s)=>{s.r(e),s.d(e,{default:()=>r});var i=s(8732);s(2015);let r=({message:t})=>(0,i.jsx)("p",{className:"rotating-message",style:{transition:"all 0.5s ease-in-out",position:"fixed",left:"50%",transform:"translateX(-50%)",width:"100%",textAlign:"center",top:"15vh",zIndex:20},children:t})}};

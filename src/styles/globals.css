@@ -14,6 +14,161 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
+/* Animation classes */
+.love-message-container {
+  opacity: 0;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.hero-background {
+  opacity: 0;
+  animation: blurIn 1s ease-out forwards;
+  animation-delay: 0.2s;
+}
+
+.blur-circle-top,
+.blur-circle-bottom,
+.blur-circle-middle {
+  opacity: 0;
+  animation:
+    fadeIn 1s ease-out forwards 0.3s,
+    floatAnimation 8s ease-in-out infinite 1.3s;
+}
+
+.blur-circle-top {
+  animation-name: fadeIn, floatTop;
+}
+
+.blur-circle-bottom {
+  animation-name: fadeIn, floatBottom;
+}
+
+.blur-circle-middle {
+  animation-name: fadeIn, floatMiddle;
+}
+
+.letters-wrapper {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideUp 0.8s ease-out forwards 0.6s;
+}
+
+.hero-name {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideUp 0.8s ease-out forwards 0.6s;
+}
+
+.rotating-message {
+  opacity: 0;
+  animation: fadeIn 0.8s ease-out forwards 1s;
+}
+
+.message-content img,
+.hero-image {
+  opacity: 0;
+  transform: scale(0.95);
+  animation: scaleIn 1s ease-out forwards 0.8s;
+}
+
+.love-button {
+  opacity: 0;
+  animation: fadeIn 0.8s ease-out forwards 1.2s;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+  to {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInTyping {
+  0% {
+    opacity: 0;
+    width: 0;
+  }
+  10% {
+    opacity: 1;
+    width: 0;
+  }
+  100% {
+    opacity: 1;
+    width: 100%;
+  }
+}
+
+.footer-message {
+  opacity: 1;
+}
+
+.footer-message p {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+  animation: fadeInTyping 6s ease-out forwards;
+}
+
+.letters-wrapper {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideUp 3s ease-out forwards;
+  animation-delay: 2s;
+}
+
+.image-fade-in {
+  opacity: 0;
+  animation: fadeIn 2s ease-out forwards;
+  animation-delay: 4s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes blurIn {
+  0% {
+    opacity: 0;
+    filter: blur(10px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 * {
   box-sizing: border-box;
 }
@@ -102,10 +257,10 @@ body {
   width: clamp(300px, 50vw, 600px);
   height: clamp(300px, 50vw, 600px);
   border-radius: 50%;
-  background-color: #ff69b4;
+  background-color: #ffa7d3;
   opacity: 0.6;
   filter: blur(clamp(50px, 10vw, 100px));
-  animation: floatTop 8s ease-in-out infinite;
+  animation: floatTop 8s ease-in-out linear infinite;
   will-change: transform;
 }
 
@@ -119,7 +274,7 @@ body {
   background-color: #fbb6ff;
   opacity: 0.7;
   filter: blur(clamp(40px, 8vw, 80px));
-  animation: floatBottom 10s ease-in-out infinite;
+  animation: floatBottom 10s ease-in-out linear infinite;
   will-change: transform;
 }
 
@@ -133,7 +288,7 @@ body {
   background-color: #ffd3b8;
   opacity: 0.65;
   filter: blur(clamp(30px, 6vw, 60px));
-  animation: floatMiddle 12s ease-in-out infinite;
+  animation: floatMiddle 12s ease-in-out linear infinite;
   will-change: transform;
 }
 
@@ -162,18 +317,21 @@ body {
 }
 
 .letters-container {
-  position: relative;
+  position: absolute;
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  margin-top: -5vh;
 }
 
 .letters-wrapper {
   display: flex;
-  align-items: center;
+  gap: 0.5rem;
   justify-content: center;
-  gap: 1rem;
-  width: 100%;
+  align-items: center;
+  width: auto;
 }
 
 .letter {
@@ -376,9 +534,29 @@ body {
   text-align: center;
   width: 100%;
   color: #ff69b4;
-  font-size: 18px;
   font-family: "Poppins", sans-serif;
-  padding: 10px;
+  transition: all 0.5s ease;
+}
+
+@media (max-width: 1024px) {
+  .footer-message {
+    font-size: clamp(0.875rem, 1.8vw, 1rem);
+    padding: clamp(6px, 1.5vh, 12px);
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-message {
+    font-size: clamp(0.75rem, 1.6vw, 0.875rem);
+    padding: clamp(4px, 1vh, 8px);
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-message {
+    font-size: clamp(0.7rem, 1.4vw, 0.8rem);
+    padding: clamp(3px, 0.8vh, 6px);
+  }
 }
 @media (max-width: 360px) {
   .letters-container {
@@ -568,4 +746,35 @@ body {
   color: #ff69b4;
   font-size: 18px;
   line-height: 1.6;
+}
+
+@keyframes fadeInTimer {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.together-timer {
+  animation: fadeInTimer 1s ease-out forwards;
+}
+
+@media (max-width: 768px) {
+  .together-timer {
+    right: 2;
+    bottom: 24;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .together-timer {
+    right: 1;
+    bottom: 20;
+    font-size: 0.8rem;
+  }
 }
