@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "echo Running postbuild script && copy .next\\routes-manifest.json out\\routes-manifest.json",
     "start": "next start",
     "lint": "next lint"
   },
